@@ -1,0 +1,110 @@
+<!-- vendor_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.vendor-form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #444;
+}
+
+    </style>
+</head>
+<body>
+    <div class="vendor-form-container">
+        <h2>Vendor Registration Form</h2>
+        <form id="vendor-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Company Name:</label>
+                <input type="text" id="company" name="company" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="services">Services Offered:</label>
+                <textarea id="services" name="services" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="package">Package:</label>
+                <select id="package" name="package" required>
+                    <option value="">Select Package</option>
+                    <option value="basic">Basic</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <h1> vendor_dashboard</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+    </form>
+
+
+</body>
+</html>

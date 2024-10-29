@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .payment-form {
+  width: 50%;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.payment-button {
+  width: 100%;
+  height: 40px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-button:hover {
+  background-color: #3e8e41;
+}
+
+.payment-logo {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  border-radius: 50%;
+}
+
+    </style>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data" class="payment-form">
+        {% csrf_token %}
+      
+        <h1 class="payment-title">Payment Form</h1>
+      
+        <div class="form-group">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="payment-method">Payment Method:</label>
+          <select id="payment-method" name="payment_method" required>
+            <option value="card">Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="card-number">Card Number:</label>
+          <input type="text" id="card-number" name="card_number" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="expiration-date">Expiration Date:</label>
+          <input type="date" id="expiration-date" name="expiration_date" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="cvv">CVV:</label>
+          <input type="number" id="cvv" name="cvv" required>
+        </div>
+      
+        <button type="submit" class="payment-button">Make Payment</button>
+      
+        <img src="{% static 'images/payment_logo.png' %}" alt="Payment Logo" class="payment-logo">
+      
+      </form>      
+</body>
+</html>

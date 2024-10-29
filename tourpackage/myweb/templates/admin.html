@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat {
+    flex-basis: 30%;
+    margin-bottom: 20px;
+}
+
+.package-approval table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.package-approval th, .package-approval td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.approval-actions {
+    text-align: center;
+}
+
+.btn {
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        <div class="dashboard-stats">
+            <div class="stat">
+                <h3>Total Users:</h3>
+                <p>{{ total_users }}</p>
+            </div>
+            <div class="stat">
+                <h3>Total Vendors:</h3>
+                <p>{{ total_vendors }}</p>
+            </div>
+            <div class="stat">
+                <h3>Total Packages:</h3>
+                <p>{{ total_packages }}</p>
+            </div>
+        </div>
+        <div class="package-approval">
+            <h3>Package Approval:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Vendor</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for package in packages %}
+                        <tr>
+                            <td>{{ package.name }}</td>
+                            <td>{{ package.vendor.name }}</td>
+                            <td>{{ package.status }}</td>
+                            <td>
+                                <a href="{% url 'admin_package_approval' (link unavailable) %}" class="btn">Approve</a>
+                                <a href="{% url 'admin_package_reject' (link unavailable) %}" class="btn">Reject</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
