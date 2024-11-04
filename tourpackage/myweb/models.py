@@ -9,6 +9,16 @@ class User(AbstractUser):
     groups = models.ManyToManyField('auth.Group', related_name='myweb_user_set', blank=True)
     user_permissions = models.ManyToManyField('auth.Permission', related_name='myweb_user_permissions_set', blank=True)
 
+class profile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    f_name = models.CharField(max_length=100)
+    l_name = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user.username          
+
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tour_package = models.CharField(max_length=200)

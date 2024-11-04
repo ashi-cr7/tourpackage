@@ -1,6 +1,8 @@
-
-from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from .models import *
 from .forms import *
 
@@ -25,6 +27,9 @@ def admin_dashboard(request):
 def vendor(request):
     return render(request, 'vendor.html')
 
+def contact(request):
+    return render(request, 'contact.html') 
+
 def user_dashboard(request):
     user = request.user
     bookings = Booking.objects.filter(user=user)
@@ -33,26 +38,26 @@ def user_dashboard(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserRegistrationForm()
-    return render(request, 'register.html', {'form': form})
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        myuser = User.objects.create_user(username,email,password)
+        myuser.save
+        return redirect('login')
+    return render(request, 'register.html',)
+
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return HttpResponse('login')
+        else:
+            return redirect('regiter')
     return render(request, 'login.html')
 
 def logout_view(request):
