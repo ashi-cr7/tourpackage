@@ -98,12 +98,11 @@ button[type="submit"]:hover {
             </div>
             <button type="submit">Register</button>
         </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
     </div>
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
     </form>
-
-
 </body>
 </html>

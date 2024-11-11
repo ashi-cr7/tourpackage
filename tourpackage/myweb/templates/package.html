@@ -3,107 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Package Details</title>
+    <title>Our Packages</title>
     <style>
-        body {
+      body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.package-exploration-container {
-    max-width: 800px;
-    margin: 40px auto;
+header {
+    background-color: #333;
+    color: #fff;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
     text-align: center;
 }
 
-.form-group {
-    margin-bottom: 20px;
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-label {
-    display: block;
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url("C:\Users\ashik\Downloads\pro.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.packages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.package {
+    background-color: #f7f7f7;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.package h2 {
+    margin-top: 0;
+}
+
+.package ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.package li {
     margin-bottom: 10px;
 }
 
-select, input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button[type="submit"] {
+.package button {
     background-color: #333;
     color: #fff;
-    border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    border: none;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
-    background-color: #444;
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
-.package-results {
-    margin-top: 20px;
-}
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="package-exploration-container">
-        <h2>Explore Packages</h2>
-        <form id="package-exploration-form">
-            <div class="form-group">
-                <label for="destination">Destination:</label>
-                <select id="destination" name="destination" required>
-                    <option value="">Select Destination</option>
-                    <option value="paris">Paris</option>
-                    <option value="rome">Rome</option>
-                    <option value="new-york">New York</option>
-                </select>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home'%}">Home</a></li>
+                <li><a href="{% url 'about'%}">About Us</a></li>
+                <li><a href="{% url 'packages'%}" class="active">Packages</a></li>
+                <li><a href="{% url 'contact'%}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Our Packages</h1>
+            <p>Choose from our exclusive packages</p>
+        </section>
+        <section class="packages">
+            <div class="package">
+                <h2>Basic Package</h2>
+                <p>Starting from $99</p>
+                <ul>
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                </ul>
+                <a href="{% url 'booking'%}">
+                <button>Book Now</button>
+                </a>
             </div>
-            <div class="form-group">
-                <label for="travel-type">Travel Type:</label>
-                <select id="travel-type" name="travel-type" required>
-                    <option value="">Select Travel Type</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="romance">Romance</option>
-                    <option value="family">Family</option>
-                </select>
+            <div class="package">
+                <h2>Premium Package</h2>
+                <p>Starting from $199</p>
+                <ul>
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                    <li>Feature 4</li>
+                    <li>Feature 5</li>
+                </ul>
+                <a href="{% url 'booking'%}">
+                <button>Book Now</button>
+                </a>
             </div>
-            <div class="form-group">
-                <label for="budget">Budget:</label>
-                <input type="number" id="budget" name="budget" required>
+            <div class="package">
+                <h2>Elite Package</h2>
+                <p>Starting from $299</p>
+                <ul>
+                    <li>Feature 1</li>
+                    <li>Feature 2</li>
+                    <li>Feature 3</li>
+                    <li>Feature 4</li>
+                    <li>Feature 5</li>
+                    <li>Feature 6</li>
+                </ul>
+                <a href="{% url 'booking'%}">
+                <button>Book Now</button>
+                </a>
             </div>
-            <div class="form-group">
-                <label for="duration">Duration:</label>
-                <select id="duration" name="duration" required>
-                    <option value="">Select Duration</option>
-                    <option value="3-5-days">3-5 Days</option>
-                    <option value="5-7-days">5-7 Days</option>
-                    <option value="7-10-days">7-10 Days</option>
-                </select>
-            </div>
-            <button type="submit">Explore Packages</button>
-        </form>
-        <div class="package-results">
-            <!-- Package results will be displayed here -->
-        </div>
-    </div>
-
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-    </form>
-        
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

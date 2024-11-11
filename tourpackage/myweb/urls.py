@@ -17,6 +17,5 @@ path('vendor/', v.vendor, name='vendor'),
 path('package/', v.package, name='package'),
 path('profile/', v.user_dashboard, name='profile'),
 path('payment/', v.payment, name='payment'),
-path('vendor/', v.vendor, name='vendor'),
 path('contact/', v.contact, name='contact'),
 ]
