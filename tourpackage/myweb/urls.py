@@ -18,4 +18,5 @@ path('package/', v.package, name='package'),
 path('profile/', v.user_dashboard, name='profile'),
 path('payment/', v.payment, name='payment'),
 path('contact/', v.contact, name='contact'),
+path('payment/', v.payment, name='v'),
 ]

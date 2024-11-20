@@ -26,29 +26,40 @@ def admin_dashboard(request):
 
 def vendor(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        myuser = User.objects.create_user(username,email,password)
-        myuser.save
-        return redirect('vendor_login')
-    return render(request, 'vendor.html',)
+        user_form = UserRegisterForm(request.POST)
+        vendor_form = VendorRegistrationForm(request.POST)
+        if user_form.is_valid() and vendor_form.is_valid():
+            user = user_form.save()
+            vendor = vendor_form.save(commit=False)
+            vendor.user = user
+            vendor.save()
+            return redirect('vendor_dashboard')
+    else:
+        user_form = UserRegisterForm()
+        vendor_form = VendorRegistrationForm()
+    return render(request, 'vendor.html', {'user_form': user_form, 'vendor_form': vendor_form})
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        form = LoginForm(request.POST)
+        username = form.data['username']
+        password = form.data['password']
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponse('vendor_login')
-        else:
-            return redirect('vendor')
-    return render(request, 'vendor_login.html')
+            return redirect('vendor_dashboard')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
 
+@login_required
 def logout_view(request):
     logout(request)
-    return redirect('vendor_login')
+    return redirect('login')
+
+@login_required
+def vendor_dashboard(request):
+    return render(request, 'vendor_dashboard.html')
 
 def contact(request):
     return render(request, 'contact.html') 
@@ -61,31 +72,38 @@ def user_dashboard(request):
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-
-        myuser = User.objects.create_user(username,email,password)
-        myuser.save
-        return redirect('login')
-    return render(request, 'register.html',)
-
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'register.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        form = LoginForm(request.POST)
+        username = form.data['username']
+        password = form.data['password']
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponse('login')
-        else:
-            return redirect('regiter')
-    return render(request, 'login.html')
+            return redirect('home')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
 
+@login_required
+def profile(request):
+   return render(request, 'profile.html')
+
+@login_required
 def logout_view(request):
-    logout(request)
-    return redirect('login')
+ logout(request)
+ return redirect('login')
+
+
 
 def booking(request):
     if request.method == 'POST':

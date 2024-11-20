@@ -1,9 +1,26 @@
 from django import forms
 from .models import *
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('phone', 'address')
 
 
-
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -20,7 +37,17 @@ class PaymentForm(forms.ModelForm):
         model = Payment
         fields = ('booking','amount')
 
-class VendorForm(forms.ModelForm):
+class VendorRegistrationForm(forms.ModelForm):
     class Meta:
         model = Vendor
-        fields = ('name', 'email', 'phone', 'address')        
+        fields = ('company_name', 'address', 'phone', 'email')
+
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)        

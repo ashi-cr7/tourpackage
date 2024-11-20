@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>index</title>
+      <title>home</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -72,7 +72,6 @@
                            <nav class="main-menu">
                               <ul class="menu-area-main">
                                  <li class="active"> <a href="{% url 'home'%}">Home</a> </li>
-                                 <li> <a href="{% url 'about'%}">About</a> </li>
                                  <li><a href="{% url 'package'%}">PACKAGES</a></li>
                                  <li><a href="{% url 'register'%}">register as user</a></li>
                                  <li><a href="{% url 'vendor'%}">register as vendor</a></li>
@@ -93,54 +92,8 @@
             <img src="{% static 'sam/images/banner.jpg'%}" alt="#"/>
             <div class="container">
                <div class="text-bg">
-                  <h1>America<br><strong class="white">Amazing Tour</strong></h1>
-                  <div class="button_section"> <a class="main_bt" href="#">Read More</a>  </div>
-                  <div class="container">
-                     <form class="main-form">
-                        <h3>Find Your Tour</h3>
-                        <div class="row">
-                           <div class="col-md-9">
-                              <div class="row">
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Keywords</label>
-                                    <input class="form-control" placeholder="" type="text" name="">
-                                 </div>
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Category</label>
-                                    <select class="form-control" name="Any">
-                                       <option>Any</option>
-                                       <option>Option 1</option>
-                                       <option>Option 2</option>
-                                       <option>Option 3</option>
-                                    </select>
-                                 </div>
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Min Price</label>
-                                    <input class="form-control" placeholder="00.0" type="text" name="00.0">
-                                 </div>
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Duration</label>
-                                    <input class="form-control" placeholder="Any" type="text" name="Any">
-                                 </div>
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Date</label>
-                                    <input class="form-control" placeholder="Any" type="date" name="Any">
-                                 </div>
-                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label >Max Price</label>
-                                    <input class="form-control" placeholder="00.0" type="text" name="00.0">
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                              <a href="#">search</a>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+                  <h1>Ashik<br><strong class="white">Amazing Tour</strong></h1>
+                  
       </section>
       <!-- about -->
       <div id="about" class="about">
@@ -165,11 +118,6 @@
                         </div>
                      </div>
                   </div>
-               </div>
-            </div>
-            <a href="#">Read More</a>
-         </div>
-      </div>
       <!-- end about -->
       <!-- traveling -->
       <div id="travel" class="traveling">
@@ -188,9 +136,7 @@
                      <i><img src="{% static 'sam/icon/travel-icon.png'%}" alt="icon"/></i>
                      <h3>Different Countrys</h3>
                      <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                     <div class="read-more">
-                        <a  href="#">Read More</a>
-                     </div>
+                     
                   </div>
                </div>
                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -198,9 +144,7 @@
                      <i><img src="{% static 'sam/icon/travel-icon2.png'%}" alt="icon"/></i>
                      <h3>Mountains Tours</h3>
                      <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                     <div class="read-more">
-                        <a  href="#">Read More</a>
-                     </div>
+                     
                   </div>
                </div>
                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -208,9 +152,7 @@
                      <i><img src="{% static 'sam/icon/travel-icon3.png'%}" alt="icon"/></i>
                      <h3>Bus Tours</h3>
                      <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                     <div class="read-more">
-                        <a  href="#">Read More</a>
-                     </div>
+                     
                   </div>
                </div>
                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -218,9 +160,7 @@
                      <i><img src="{% static 'sam/icon/travel-icon4.png'%}" alt="icon"/></i>
                      <h3>Summer Rest</h3>
                      <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                     <div class="read-more">
-                        <a  href="#">Read More</a>
-                     </div>
+                     
                   </div>
                </div>
             </div>
@@ -296,58 +236,13 @@
                   <div class="amazing-box">
                      <h2>Amazing London Tour</h2>
                      <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</span>
-                     <a href="{% url 'booking'%}">Book Now</a><a href="#">Get More</a>
+                     <a href="{% url 'booking'%}">Book Now</a>
                   </div>
                </div>
             </div>
          </div>
       </div>
-      <!-- end Amazing -->
-      <!-- our blog -->
-      <div id="blog" class="blog">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Our Blog</h2>
-                     <span>Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                  <div class="blog-box">
-                     <figure><img src="{% static 'sam/images/blog-image0.jpg'%}" alt="#"/>
-                        <span>4 Feb 2019</span>
-                     </figure>
-                     <div class="travel">
-                        <span>Post  By :  Travel  Agency</span> 
-                        <p><strong class="Comment"> 06 </strong>  Comment</p>
-                        <p><strong class="like">05 </strong>Like</p>
-                     </div>
-                     <h3>London Amazing Tour</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web</p>
-                  </div>
-               </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                  <div class="blog-box">
-                     <figure><img src="{% static 'sam/images/blog-image.jpg'%}" alt="#"/>
-                        <span>10 Feb 2019</span>
-                     </figure>
-                     <div class="travel">
-                        <span>Post  By :  Travel  Agency</span> 
-                        <p><strong class="Comment"> 06 </strong>  Comment</p>
-                        <p><strong class="like">05 </strong>Like</p>
-                     </div>
-                     <h3>London Amazing Tour</h3>
-                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end our blog -->
-      <!-- footer -->
+      
       <footer>
          <div id="contact" class="footer">
             <div class="container">
@@ -369,38 +264,7 @@
                      </div>
                   </div>
                   <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                     <div class="Follow">
-                        <h3>ADDITIONAL LINKS</h3>
-                        <ul class="link">
-                           <li> <a href="#">About us</a></li>
-                           <li> <a href="#">Terms and conditions</a></li>
-                           <li> <a href="#"> Privacy policy</a></li>
-                           <li> <a href="#">News</a></li>
-                           <li> <a href="#"> Contact us</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                     <div class="Follow">
-                        <h3> Contact</h3>
-                        <div class="row">
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Name" type="text">
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Email" type="text">
-                           </div>
-                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                              <textarea class="textarea" placeholder="comment" type="text">Comment</textarea>
-                           </div>
-                        </div>
-                        <button class="Subscribe">Submit</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="copyright">
-                  <div class="container">
-                     <p>Copyright 2019 All Right Reserved By <a href="https://html.design/">Free html Templates</a></p>
+                        
                   </div>
                </div>
             </div>
