@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,13 +84,12 @@ button[type="submit"] {
             <h1>Vendor Registration</h1>
             <form method="post">
                 {% csrf_token %}
-                {{ user_form.as_p }}
-                {{ vendor_form.as_p }}
+                {{ form.as_p }}
                 <button type="submit">Register</button>
             </form>
         </body>
         </html>
-            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            <p>Already have an account? <a href="{% url 'vendor_login' %}">Login</a></p>
         </section>
     </main>
 

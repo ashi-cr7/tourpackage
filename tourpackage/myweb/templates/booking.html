@@ -3,39 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Package Booking</title>
+    <title>Booking Page</title>
     <style>
+        
         body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
+.booking-container {
+    width: 80%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
+h1 {
+    margin-top: 0;
 }
 
-header nav ul li {
-    margin-right: 20px;
-}
-
-header nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.booking {
+form {
     width: 50%;
     margin: 40px auto;
     padding: 20px;
@@ -44,24 +34,12 @@ header nav a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
 label {
+    display: block;
     margin-bottom: 10px;
 }
 
-input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"] {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-select {
+input[type="text"], input[type="email"], input[type="tel"] {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
@@ -74,73 +52,25 @@ button[type="submit"] {
     height: 40px;
     background-color: #4CAF50;
     color: #fff;
-    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="booking">
-            <h1>Book Your Tour</h1>
-            <form action="" method="post" id="booking-form">
-                {% csrf_token %}
-                <label>Full Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label>Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label>Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <label>Address:</label>
-                <input type="text" id="address" name="address" required>
-
-                <label>City:</label>
-                <input type="text" id="city" name="city" required>
-
-                <label>State:</label>
-                <input type="text" id="state" name="state" required>
-
-
-                <label>Tour Package:</label>
-                <select id="tour-package" name="tour-package" required>
-                    <option value="">Select Package</option>
-                    <option value="package1">Package 1</option>
-                    <option value="package2">Package 2</option>
-                    <option value="package3">Package 3</option>
-                </select>
-
-                <label>Number of Travelers:</label>
-                <input type="number" id="travelers" name="travelers" required>
-
-                <label>Booking Date:</label>
-                <input type="date" id="booking-date" name="booking-date" required>
-
-                <button type="submit" id="Razorpay">pay with Razorpay</button>
-                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_P67mpDGXRCm1Kb" async> </script>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Tour Package Company. All rights reserved.</p>
-    </footer>
+    <div class="booking-container">
+        <h1>Book Your Package</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_P67mpDGXRCm1Kb" async> </script> </form>
+        </form>
+    </div>
 </body>
 </html>

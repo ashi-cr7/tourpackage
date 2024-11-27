@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,15 +72,17 @@ button[type="submit"] {
     cursor: pointer;
 }
     </style>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
 </head>
 <body>
+    <div class="container">
         <h1>User Registration</h1>
         <form method="post">
             {% csrf_token %}
+            {{ form.as_p }}
             <button type="submit">Register</button>
-            </form>
-        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </form>
     </div>
+    <p>Already have an account? <a href="{% url 'userlogn' %}">Login</a></p>
 </body>
 </html>
